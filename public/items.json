@@ -1,0 +1,86 @@
+{
+  "items": {
+    "bootstrap": [
+      {
+        "id": 1,
+        "title": "Welcome to Jobie-Agro Farm",
+        "body": "",
+        "imageUrl": "https://images.unsplash.com/photo-1588597989061-b60ad0eefdbf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8cG91bHRyeXxlbnwwfHwwfHw%3D&w=1000&q=80",
+        "docs": "https://getbootstrap.com/docs/4.0/components/carousel/"
+      },
+      {
+        "id": 2,
+        "title": "Poultry Farming",
+        "body": "",
+        "imageUrl": "https://petkeen.com/wp-content/uploads/2021/12/chicken-farm-factory_TukkataMoji_Shutterstock.jpg",
+        "docs": "https://getbootstrap.com/docs/4.0/components/carousel/"
+      },
+      {
+        "id": 3,
+        "title": "Egg Hatching",
+        "body": "",
+        "imageUrl": "https://cdn.britannica.com/94/151894-050-F72A5317/Brown-eggs.jpg",
+        "docs": "https://getbootstrap.com/docs/4.0/components/carousel/"
+      },
+      {
+        "id": 4,
+        "title": "Foods and Culture",
+        "body": "",
+        "imageUrl": "https://images.unsplash.com/photo-1541329444622-e85b1a8980df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpY2tlbiUyMGZhcm18ZW58MHx8MHx8&w=1000&q=80",
+        "docs": "https://getbootstrap.com/docs/4.0/components/carousel/"
+      }
+    ]
+  },
+  "photos": [
+    {
+      "src": "https://images.unsplash.com/photo-1614120263669-43911b47f0b2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fHBvdWx0cnl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      "width": 4,
+      "height": 3
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1589922583749-6b8473a85048?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cG91bHRyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+      "width": 1,
+      "height": 1
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1589923188651-268a9765e432?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fHBvdWx0cnl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      "width": 4,
+      "height": 3
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1620136717591-841a4da27e23?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8OXx8cG91bHRyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60",
+      "width": 1,
+      "height": 1
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1569466593977-94ee7ed02ec9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHBvdWx0cnl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      "width": 4,
+      "height": 3
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1595344073133-7549ea4c7981?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjJ8fHBvdWx0cnl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      "width": 1,
+      "height": 1
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1619598951257-68e45c835908?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzZ8fHBvdWx0cnl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      "width": 4,
+      "height": 3
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1615828277068-3897b6b58673?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mzh8fHBvdWx0cnl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      "width": 1,
+      "height": 1
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1553531009-c4605f302b47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fHBvdWx0cnl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      "width": 4,
+      "height": 3
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1556316918-880f9e893822?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDJ8fHBvdWx0cnl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60",
+      "width": 1,
+      "height": 1
+    }
+  ]
+}
