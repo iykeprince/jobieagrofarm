@@ -1,35 +1,35 @@
-import { useSelector } from "react-redux";
-import MobileOrderItem from "./MobileOrderItem";
-import OrderItem from "./OrderItem";
-import OrdersSearch from "./Search/OrdersSearch";
+import { useSelector } from 'react-redux'
+import MobileOrderItem from './MobileOrderItem'
+import OrderItem from './OrderItem'
+import OrdersSearch from './Search/OrdersSearch'
 
-import classes from "./Orders.module.css";
-import Pagination from "../../Pagination/Pagination";
-import { useState } from "react";
+import classes from './Orders.module.css'
+import Pagination from '../../Pagination/Pagination'
+import { useState } from 'react'
 const Orders = () => {
   const { orders, filteredOrders, noOrder } = useSelector(
-    (state) => state.products
-  );
-  const ordersArr = filteredOrders.length > 0 ? filteredOrders : orders;
-  console.log(filteredOrders);
-  const [start, setStart] = useState(0);
-  const ORDERS_PER_PAGE = 2;
-  const end = start + ORDERS_PER_PAGE;
+    (state) => state.products,
+  )
+  const ordersArr = filteredOrders.length > 0 ? filteredOrders : orders
+  console.log(filteredOrders)
+  const [start, setStart] = useState(0)
+  const ORDERS_PER_PAGE = 2
+  const end = start + ORDERS_PER_PAGE
   const getPageHandler = (page) => {
-    setStart((pag) => page * ORDERS_PER_PAGE - ORDERS_PER_PAGE);
-  };
+    setStart((pag) => page * ORDERS_PER_PAGE - ORDERS_PER_PAGE)
+  }
 
   return (
     <>
       <div className={classes.top}>
-        <h3 className={classes.heading}>All Orders</h3>
+        <h3 className="display-4 lead">All Orders</h3>
         <div className={classes.search__box}>
           <OrdersSearch />
         </div>
       </div>
-      <div className={`${classes.desktop}`}>
+      <div className={`table-responsive`}>
         {!noOrder ? (
-          <table className={`${classes.table}`}>
+          <table className={`table`}>
             <thead>
               <tr className={classes.tr}>
                 <th className={classes.th}>Biller</th>
@@ -92,14 +92,16 @@ const Orders = () => {
           </p>
         )}
       </ul>
-      {!noOrder && ordersArr.length > 0 && (
-        <Pagination
-          totalProducts={ordersArr.length}
-          productsPerPage={ORDERS_PER_PAGE}
-          onChange={getPageHandler}
-        />
-      )}
+      <div className="my-4">
+        {!noOrder && ordersArr.length > 0 && (
+          <Pagination
+            totalProducts={ordersArr.length}
+            productsPerPage={ORDERS_PER_PAGE}
+            onChange={getPageHandler}
+          />
+        )}
+      </div>
     </>
-  );
-};
-export default Orders;
+  )
+}
+export default Orders

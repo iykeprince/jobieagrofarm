@@ -1,36 +1,36 @@
-import { useState } from "react";
-import { useSelector } from "react-redux";
-import Pagination from "../../Pagination/Pagination";
-import MobileTransactions from "./MobileTransactions";
-import Search from "./Search/Search";
-import TransactionItem from "./TransactionItem";
-import classes from "./Transactions.module.css";
+import { useState } from 'react'
+import { useSelector } from 'react-redux'
+import Pagination from '../../Pagination/Pagination'
+import MobileTransactions from './MobileTransactions'
+import Search from './Search/Search'
+import TransactionItem from './TransactionItem'
+import classes from './Transactions.module.css'
 
 const AllTransactions = () => {
   const { transactions, filteredTransactions, noTransaction } = useSelector(
-    (state) => state.products
-  );
+    (state) => state.products,
+  )
   const transactionsArr =
-    filteredTransactions.length > 0 ? filteredTransactions : transactions;
+    filteredTransactions.length > 0 ? filteredTransactions : transactions
 
-  const [start, setStart] = useState(0);
-  const TRANSACTIONS_PER_PAGE = 2;
-  const end = start + TRANSACTIONS_PER_PAGE;
+  const [start, setStart] = useState(0)
+  const TRANSACTIONS_PER_PAGE = 2
+  const end = start + TRANSACTIONS_PER_PAGE
   const getPageHandler = (page) => {
-    setStart((pag) => page * TRANSACTIONS_PER_PAGE - TRANSACTIONS_PER_PAGE);
-  };
+    setStart((pag) => page * TRANSACTIONS_PER_PAGE - TRANSACTIONS_PER_PAGE)
+  }
   return (
     <section>
       <div className={classes.top}>
-        <h3 className={classes.heading}>All Transactions</h3>
+        <h3 className="display-4 lead">All Transactions</h3>
         <div className={classes.search__box}>
           <Search />
         </div>
       </div>
 
-      <div className={`${classes.desktop}`}>
+      <div className={`table-responsive my-4`}>
         {!noTransaction ? (
-          <table className={`${classes.table}`}>
+          <table className={`table`}>
             <thead>
               <tr className={classes.tr}>
                 <th className={classes.th}>Date</th>
@@ -55,20 +55,22 @@ const AllTransactions = () => {
       </div>
 
       {/* Mobile view */}
-      <ul className={`${classes.mobile} ${classes.ul}`}>
+      {/* <ul className={`${classes.mobile} ${classes.ul}`}>
         {!noTransaction &&
           transactionsArr
             ?.slice(start, end)
             .map((item) => <MobileTransactions key={item.id} details={item} />)}
-      </ul>
-      {!noTransaction && transactionsArr.length > 0 && (
-        <Pagination
-          totalProducts={transactionsArr.length}
-          productsPerPage={TRANSACTIONS_PER_PAGE}
-          onChange={getPageHandler}
-        />
-      )}
+      </ul> */}
+      <div className="mb-4">
+        {!noTransaction && transactionsArr.length > 0 && (
+          <Pagination
+            totalProducts={transactionsArr.length}
+            productsPerPage={TRANSACTIONS_PER_PAGE}
+            onChange={getPageHandler}
+          />
+        )}
+      </div>
     </section>
-  );
-};
-export default AllTransactions;
+  )
+}
+export default AllTransactions

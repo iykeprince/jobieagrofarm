@@ -1,10 +1,10 @@
-import Image from "next/image";
-import { useDispatch } from "react-redux";
-import { ProductsActions } from "../../store/Products/ProductsSlice";
+import Image from 'next/image'
+import { useDispatch } from 'react-redux'
+import { ProductsActions } from '../../store/Products/ProductsSlice'
 
-import classes from "../../styles/Cart.module.css";
+import classes from '../../styles/Cart.module.css'
 const ProductsItem = ({ id, title, image, price, type }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const addCartItem = async () => {
     dispatch(
       ProductsActions.addCartItem({
@@ -13,16 +13,16 @@ const ProductsItem = ({ id, title, image, price, type }) => {
         image,
         price,
         amount: 1,
-        type
-      })
-    );
-  };
+        type,
+      }),
+    )
+  }
 
   return (
     <div className="col-xl-3 col-lg-4 col-sm-6 col-12">
       <div className="product-item-2">
         <div className="product-inner">
-          <div className="product-thumb">
+          <div className="product-thumb" style={{ height: '280px' }}>
             <Image src={image} alt="product" width={250} height={100} />
           </div>
           <div className="product-content">
@@ -49,7 +49,7 @@ const ProductsItem = ({ id, title, image, price, type }) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProductsItem;
+export default ProductsItem

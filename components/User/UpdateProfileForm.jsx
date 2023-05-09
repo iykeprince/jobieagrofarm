@@ -1,8 +1,8 @@
-import { useState } from "react";
-import Button from "../Button";
-import Input from "./UserInput";
+import { useState } from 'react'
+import Button from '../Button'
+import Input from './UserInput'
 
-import classes from "./UpdateProfile.module.css";
+import classes from './UpdateProfile.module.css'
 
 const Form = ({ onSubmit, email, firstName, lastName, phone }) => {
   const [form, setForm] = useState({
@@ -10,43 +10,43 @@ const Form = ({ onSubmit, email, firstName, lastName, phone }) => {
     firstName: firstName,
     lastName: lastName,
     phone: phone,
-  });
+  })
   const firstNameOnChangeHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, firstName: e.target.value };
-    });
-  };
+      return { ...prev, firstName: e.target.value }
+    })
+  }
   const lastNameOnChangeHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, lastName: e.target.value };
-    });
-  };
+      return { ...prev, lastName: e.target.value }
+    })
+  }
 
   const emailOnChangeHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, email: email };
-    });
-  };
+      return { ...prev, email: email }
+    })
+  }
 
   const phoneOnChangeHandler = (e) => {
     setForm((prev) => {
-      return { ...prev, phone: e.target.value };
-    });
-  };
+      return { ...prev, phone: e.target.value }
+    })
+  }
 
   const submitHandler = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     onSubmit({
       email: form.email,
       firstName: form.firstName,
       lastName: form.lastName,
       phone: form.phone,
-    });
-  };
+    })
+  }
 
   return (
     <form className={classes.contact__form} onSubmit={submitHandler}>
-      <h1 className={classes.h1}>Update Profile</h1>
+      <h1 className="display-5">Update Profile</h1>
       <div className={classes.row}>
         <div className={classes.row__left}>
           <Input
@@ -88,12 +88,12 @@ const Form = ({ onSubmit, email, firstName, lastName, phone }) => {
         onChange={phoneOnChangeHandler}
       />
 
-      <div className={classes.btn__box}>
-        <Button type="submit" className={classes.button}>
+      <div className={`${classes.btn__box}`}>
+        <Button type="submit" className="btn btn-dark">
           Update Profile
         </Button>
       </div>
     </form>
-  );
-};
-export default Form;
+  )
+}
+export default Form

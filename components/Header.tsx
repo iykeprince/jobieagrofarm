@@ -55,7 +55,7 @@ const Header: React.FC<any> = () => {
               <Link href="/about">About</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link href="/about">Contact</Link>
+              <Link href="/contact">Contact</Link>
             </Nav.Link>
           </Nav>
           <Nav className="ml-auto">
