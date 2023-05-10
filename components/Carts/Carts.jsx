@@ -3,17 +3,23 @@ import CartItem from './CartItem'
 import classes from '../../styles/Cart.module.css'
 import Link from 'next/link'
 import useWindowSize from '../../hooks/useWindowSize'
+import { useRouter } from 'next/router'
 
 const Carts = () => {
+  const router = useRouter()
   const { carts, totalAmount, totalQuantity, changed } = useSelector(
     (state) => state.products,
   )
 
   const { width } = useWindowSize()
 
+  const handleNavigateToCart = () => {
+    router.push('/cart')
+  }
+
   return (
     <>
-      <ul className="lab-ul search-cart">
+      <ul className="lab-ul search-cart" onClick={handleNavigateToCart}>
         <li>
           <div className="cart-option">
             <i

@@ -27,77 +27,76 @@ const Footer: React.FC<any> = () => {
                   </p>
                   <br />
                 </div>
+              </div>
+              <div className="col-xl-3 col-md-6">
+                <div className="post-item">
+                  <div className="post-title">
+                    <h5>Keep In Touch</h5>
+                  </div>
+                  <ul className="lab-ul footer-location">
+                    <li>
+                      <div className="icon-part">
+                        <i className="icofont-phone"></i>
+                      </div>
+                      <div className="content-part">
+                        <p>+234(0)7088479448</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="icon-part">
+                        <i className="icofont-wall-clock"></i>
+                      </div>
+                      <div className="content-part">
+                        <p>Mon - Fri 09:00 - 18:00</p>
+                        <p>(except public holidays)</p>
+                      </div>
+                    </li>
+                    <li>
+                      <div className="icon-part">
+                        <i className="icofont-location-pin"></i>
+                      </div>
+                      <div className="content-part">
+                        <p>
+                          Uche's close,
+                          <br />
+                          Uzo-owo Road Itupka Obingwa Abia State
+                        </p>
+                      </div>
+                    </li>
+                  </ul>
                 </div>
-                <div className="col-xl-3 col-md-6">
-                  <div className="post-item">
-                    <div className="post-title">
-                      <h5>Keep In Touch</h5>
-                    </div>
-                    <ul className="lab-ul footer-location">
-                      <li>
-                        <div className="icon-part">
-                          <i className="icofont-phone"></i>
-                        </div>
-                        <div className="content-part">
-                          <p>+234(0)7088479448</p>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="icon-part">
-                          <i className="icofont-wall-clock"></i>
-                        </div>
-                        <div className="content-part">
-                          <p>Mon - Fri 09:00 - 18:00</p>
-                          <p>(except public holidays)</p>
-                        </div>
-                      </li>
-                      <li>
-                        <div className="icon-part">
-                          <i className="icofont-location-pin"></i>
-                        </div>
-                        <div className="content-part">
-                          <p>
-                            4 Oriokuku Street,
-                            <br />
-                            Glass industry road Aba Abia state.
-                          </p>
-                        </div>
-                      </li>
-                    </ul>
+              </div>
+              <div className="col-xl-3 col-md-6">
+                {/* something here */}
+                <div>
+                  <p>
+                    <span className="d-block text-bold">
+                      FOR BANK TRANSFERS
+                    </span>
+                    <span className="d-block text-md">Sterling Bank</span>
+                    <span className="d-block text-md">
+                      Jobie Agro Farm limited{' '}
+                    </span>
+                    <span className="d-block text-md">
+                      Account No.: 0088833445
+                    </span>
+                  </p>
+                  <br />
+                  <div className="d-flex">
+                    <Image
+                      src={'/paystack.png'}
+                      alt="paystack"
+                      width={100}
+                      height={80}
+                    />
+                    <Image
+                      src={'/flutterwave.png'}
+                      alt="flutterwave"
+                      width={100}
+                      height={80}
+                    />
                   </div>
                 </div>
-                <div className="col-xl-3 col-md-6">
-                  {/* something here */}
-                  <div>
-                    <p>
-                      <span className="d-block text-bold">
-                        FOR BANK TRANSFERS
-                      </span>
-                      <span className="d-block text-md">Access Bank</span>
-                      <span className="d-block text-md">
-                        Jobie Agro Farm limited{' '}
-                      </span>
-                      <span className="d-block text-md">
-                        Account: 0088833445
-                      </span>
-                    </p>
-                    <br />
-                    <div className="d-flex">
-                      <Image
-                        src={'/paystack.png'}
-                        alt="paystack"
-                        width={100}
-                        height={80}
-                      />
-                      <Image
-                        src={'/flutterwave.png'}
-                        alt="flutterwave"
-                        width={100}
-                        height={80}
-                      />
-                    </div>
-                  </div>
-            
               </div>
               <div className="col-xl-3 col-md-6">
                 <div className="post-item">
