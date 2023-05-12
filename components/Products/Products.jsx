@@ -1,8 +1,8 @@
-import { useSelector } from "react-redux";
-import ProductsItem from "./ProductItem";
+import { useSelector } from 'react-redux'
+import ProductsItem from './ProductItem'
 
 const Products = ({ start, end }) => {
-  const products = useSelector((state) => state.products.products);
+  const products = useSelector((state) => state.products.products)
 
   return (
     <>
@@ -17,12 +17,13 @@ const Products = ({ start, end }) => {
                 image={product.image}
                 price={product.price}
                 type={product.type}
+                quantity={product.quantity}
               />
             ))}
           </div>
         </div>
       </div>
     </>
-  );
-};
-export default Products;
+  )
+}
+export default Products

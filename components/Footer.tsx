@@ -6,7 +6,7 @@ const Footer: React.FC<any> = () => {
   return (
     <>
       <footer>
-        <div className="footer-top relative padding-tb bg-ash relative">
+        <div className="footer-top relative padding-tb bg-ash">
           <div className="shape-images">
             <img src="/assets/images/shape-img/01.png" alt="shape-images" />
           </div>
@@ -47,7 +47,7 @@ const Footer: React.FC<any> = () => {
                         <i className="icofont-wall-clock"></i>
                       </div>
                       <div className="content-part">
-                        <p>Mon - Fri 09:00 - 18:00</p>
+                        <p>Sun - Fri 09:00 - 18:00</p>
                         <p>(except public holidays)</p>
                       </div>
                     </li>
@@ -57,7 +57,7 @@ const Footer: React.FC<any> = () => {
                       </div>
                       <div className="content-part">
                         <p>
-                          Uche's close,
+                          Uche&apos;s close,
                           <br />
                           Uzo-owo Road Itupka Obingwa Abia State
                         </p>
