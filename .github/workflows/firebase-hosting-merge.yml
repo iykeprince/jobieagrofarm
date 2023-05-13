@@ -18,3 +18,5 @@ jobs:
           firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_JOBIE_FARM }}'
           channelId: live
           projectId: jobie-farm
+        env:
+          FIREBASE_CLI_EXPERIMENTS: webframeworks
