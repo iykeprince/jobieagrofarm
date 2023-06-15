@@ -66,10 +66,10 @@ export default function Home() {
         <HomeProducts />
         {/* Products */}
         {/* Poultry farm service */}
-        <Services />
+        {/* <Services /> */}
         {/* poultry farm service */}
         {/* poultry farm gallery */}
-        <FarmGallery />
+        {/* <FarmGallery /> */}
         {/* poultry farm gallery */}
         {/* Testimonial */}
         {/* Testim */}

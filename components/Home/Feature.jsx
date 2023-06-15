@@ -30,9 +30,9 @@ export default function Feature() {
               <div className="lab-inner">
                 <div className="lab-thumb">
                   <Image
-                    width={100}
-                    height={100}
-                    src="/assets/images/feature/06.png"
+                    width={200}
+                    height={200}
+                    src="/assets/images/new/247-support.png"
                     alt="Feature image"
                     className="ml-auto mr-auto"
                   />
@@ -49,9 +49,9 @@ export default function Feature() {
               <div className="lab-inner">
                 <div className="lab-thumb">
                   <Image
-                    width={100}
-                    height={100}
-                    src="/assets/images/feature/07.png"
+                    width={250}
+                    height={250}
+                    src="/assets/images/new/online-pay.png"
                     alt="Feature image"
                     className="ml-auto mr-auto"
                   />
@@ -68,9 +68,9 @@ export default function Feature() {
               <div className="lab-inner">
                 <div className="lab-thumb">
                   <Image
-                    width={100}
-                    height={100}
-                    src="/assets/fast-delivery.png"
+                    width={200}
+                    height={200}
+                    src="/assets/images/new/fast-delivery.png"
                     alt="Feature image"
                     className="ml-auto mr-auto"
                   />

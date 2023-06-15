@@ -24,6 +24,8 @@ const SelectedItem = ({ title, price, totalPrice, id, image, quantity }) => {
       })
     );
   };
+
+  console.log('image', image)
   return (
     <>
       <tr className={classes.tr}>
@@ -34,9 +36,9 @@ const SelectedItem = ({ title, price, totalPrice, id, image, quantity }) => {
           ></i>
         </td>
         <td className={classes.image}>
-          <Image src={image} width={120} height={20} alt={title} />
+          <Image src={image} alt="product" width={100} height={80} />
         </td>
-        <td>{title}</td>
+        <td>{title} </td>
         <td>
           <span>
             <i

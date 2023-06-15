@@ -46,29 +46,29 @@ const Header: React.FC<any> = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto mr-auto">
             <Nav.Link>
-              <Link href="/">Home</Link>
+              <Link href="/" legacyBehavior>Home</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link href="/shop">Shop</Link>
+              <Link href="/shop" legacyBehavior>Shop</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link href="/about">About</Link>
+              <Link href="/about" legacyBehavior>About</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link href="/contact">Contact</Link>
+              <Link href="/contact" legacyBehavior>Contact</Link>
             </Nav.Link>
           </Nav>
           <Nav className="ml-auto">
             {!authUser && (
               <Nav.Link>
-                <Link href="/signup" className="text-decoration-none">
+                <Link href="/signup" className="text-decoration-none" legacyBehavior>
                   Sign Up
                 </Link>
               </Nav.Link>
             )}
             {!authUser && (
               <Nav.Link>
-                <Link href="/login" className="text-decoration-none">
+                <Link href="/login" className="text-decoration-none" legacyBehavior>
                   Login
                 </Link>
               </Nav.Link>
@@ -76,13 +76,13 @@ const Header: React.FC<any> = () => {
             {authUser && (
               <NavDropdown title="Account" id="basic-nav-dropdown ml-auto">
                 <NavDropdown.Item>
-                  <Link href="/user">My Profile</Link>
+                  <Link href="/user" legacyBehavior>My Profile</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <Link href="/user/orders">Orders</Link>
+                  <Link href="/user/orders" legacyBehavior>Orders</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Item>
-                  <Link href="/user/transactions">Transactions</Link>
+                  <Link href="/user/transactions" legacyBehavior>Transactions</Link>
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={logout}>Logout</NavDropdown.Item>

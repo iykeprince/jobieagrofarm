@@ -1,34 +1,49 @@
 const { createServer } = require('http')
 const { parse } = require('url')
 const next = require('next')
+const { https } = require('firebase-functions/v1')
 
+const port = parseInt(process.env.PORT || '3000', 10)
 const dev = process.env.NODE_ENV !== 'production'
-const hostname = 'localhost'
-const port = process.env.PORT || 3000
-
-const app = next({ dev, hostname, port })
+const app = next({ dev, conf: { distDir: '.next' }, })
 const handle = app.getRequestHandler()
 
-app.prepare().then(() => {
-  createServer(async (req, res) => {
-    try {
-      const parsedUrl = parse(req.url, true)
-      const { pathname, query } = parsedUrl
+//  app.prepare().then(() => {
+//   createServer((req, res) => {
+//     if(req.url === "") {
+//         req.url = "/"
+//     }
+//     const parsedUrl = parse(req.url, true)
+//     handle(req, res, parsedUrl)
+//   }).listen(port)
 
-      if (pathname === '/a') {
-        await app.render(req, res, '/a', query)
-      } else if (pathname === '/b') {
-        await app.render(req, res, '/b', query)
-      } else {
-        await handle(req, res, parsedUrl)
-      }
-    } catch (err) {
-      console.error('Error occurred handling', req.url, err)
-      res.statusCode = 500
-      res.end('internal server error')
-    }
-  }).listen(port, (err) => {
-    if (err) throw err
-    console.log(`> Ready on http://${hostname}:${port}`)
-  })
+//   console.log(
+//     `> Server listening at http://localhost:${port} as ${
+//       dev ? 'development' : process.env.NODE_ENV
+//     }`
+//   )
+// }).catch(ex => {
+//     console.error(ex.stack)
+//     process.exit(1)
+// })
+
+exports.jobieFarmNextServerFn = https.onRequest((req, res) => {
+    // return res.status(200).send("Hello world")
+     app.prepare().then(() => {
+        console.log(
+          `> Server listening at ${req.baseUrl} as ${
+            dev ? 'development' : process.env.NODE_ENV
+          }`
+        )
+        if(req.url === "") {
+            req.url = "/"
+        }
+        const parsedUrl = parse(req.url, true)
+       return handle(req, res, parsedUrl)
+      
+      }).catch(ex => {
+         console.log('see error')
+          console.error(ex.stack)
+          process.exit(1)
+      })
 })

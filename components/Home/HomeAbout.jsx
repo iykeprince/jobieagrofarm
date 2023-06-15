@@ -17,19 +17,15 @@ export default function HomeAbout() {
                       alt="about"
                     />
                   </div>
-                  <div className="about-content w-100">
+                  <div className="about-thumb">
                     <div className="ac-thumb">
                       <Image
                         width={100}
                         height={100}
-                        className="ml-auto mr-auto"
-                        src="/assets/images/about/icon/01.png"
+                        className=""
+                        src="https://images.unsplash.com/photo-1556316918-880f9e893822?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDJ8fHBvdWx0cnl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
                         alt="about Image"
                       />
-                    </div>
-                    <div className="ac-content">
-                      <h6>Daily 700+ Collect</h6>
-                      <p></p>
                     </div>
                   </div>
                 </div>
@@ -44,19 +40,15 @@ export default function HomeAbout() {
                       alt="about"
                     />
                   </div>
-                  <div className="about-content">
+                  <div className="about-thumb">
                     <div className="ac-thumb">
                       <Image
                         width={100}
                         height={100}
-                        className="ml-auto mr-auto"
-                        src="/assets/images/about/icon/02.png"
+                        className=""
+                        src="https://images.unsplash.com/photo-1553531009-c4605f302b47?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MzN8fHBvdWx0cnl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
                         alt="about Image"
                       />
-                    </div>
-                    <div className="ac-content">
-                      <h6>500+ Chicken</h6>
-                      <p></p>
                     </div>
                   </div>
                 </div>
@@ -67,23 +59,19 @@ export default function HomeAbout() {
                     <Image
                       width={100}
                       height={100}
-                      src="/assets/images/about/07.jpg"
+                      src="https://images.unsplash.com/photo-1589922583749-6b8473a85048?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cG91bHRyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
                       alt="about"
                     />
                   </div>
-                  <div className="about-content w-100">
+                  <div className="about-thumb">
                     <div className="ac-thumb">
                       <Image
                         width={100}
                         height={100}
-                        className="ml-auto mr-auto"
-                        src="/assets/images/about/icon/03.png"
+                        className=""
+                        src="https://images.unsplash.com/photo-1569466593977-94ee7ed02ec9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fHBvdWx0cnl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
                         alt="about Image"
                       />
-                    </div>
-                    <div className="ac-content">
-                      <h6>Daily 100kg+ Meet</h6>
-                      <p></p>
                     </div>
                   </div>
                 </div>

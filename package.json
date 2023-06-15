@@ -2,15 +2,14 @@
   "name": "jobie-farm-next",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "18.x",
-    "npm": "9.x"
-  },
+  "main": "server.js",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "NODE_ENV=production node server.js",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:clean":"yarn build && rm -rf .next/cache",
+    "firebase:deploy": "firebase deploy --only functions:jobieFarmNextServerFn,hosting"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.9.2",

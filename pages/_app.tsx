@@ -8,11 +8,20 @@ import { AuthUserProvider } from '../contexts/auth.context'
 import { Provider } from 'react-redux'
 import store, { persistor } from '../store/store'
 import { PersistGate } from 'redux-persist/integration/react'
+import Head from 'next/head'
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <AuthUserProvider>
       <div>
+      <Head>
+      <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossOrigin="anonymous"
+        />
+      </Head>
         <Script
           src="/assets/js/jquery.js"
           onLoad={() => console.log('jQuery loaded')}

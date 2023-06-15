@@ -14,7 +14,7 @@ const Carts = () => {
   const { width } = useWindowSize()
 
   const handleNavigateToCart = () => {
-    router.push('/cart')
+    router.push('/shop/my-cart')
   }
 
   return (
