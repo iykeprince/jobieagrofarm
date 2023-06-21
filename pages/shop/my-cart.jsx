@@ -5,6 +5,7 @@ import SelectedProducts from '../../components/SelectedProducts/SelectedProducts
 import Button from '../../components/Button'
 import classes from '../../styles/Shop.module.css'
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 const MyCarts = () => {
   const router = useRouter()
   const { totalQuantity, totalAmount } = useSelector((state) => state.products)
@@ -17,16 +18,19 @@ const MyCarts = () => {
           Your Cart ({totalQuantity} items )
         </h2>
         <h4 className="lead">Here are all your added items</h4>
-        <div className="col-12">
+        {totalQuantity === 0 && <div class="d-flex justify-center align-center">
+          <Image width={300} height={300} src='/assets/images/new/emptyCart.png'   />
+          </div>}
+        { totalQuantity > 0 && <div className="col-12">
           <SelectedProducts />
-        </div>
-        <div className="text-right">
+        </div>}
+        {totalQuantity > 0 && <div className="text-right">
           <p className="display-6 ">
             {' '}
             Total Price: <span>&#8358;{totalAmount}</span>
           </p>
-        </div>
-        <div className="text-right">
+        </div>}
+       {totalQuantity > 0 && <div className="text-right">
           {' '}
           <Button
             onClick={() => router.push('/shop/checkouts')}
@@ -34,7 +38,7 @@ const MyCarts = () => {
           >
             Check Out
           </Button>
-        </div>
+        </div>}
       </div>
       <Footer />
     </section>

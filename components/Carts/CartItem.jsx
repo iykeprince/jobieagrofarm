@@ -22,7 +22,7 @@ const CartItem = ({ item }) => {
       <div className="cart-des">
         <a href="#">{title}</a>
         <p>
-          ${price} <span className={classes.quantity}>{quantity}x</span>
+          &#8358;{price} <span className={classes.quantity}>{quantity}x</span>
           <span className={classes.quantity}>&#8358;{totalPrice}</span>
         </p>
       </div>

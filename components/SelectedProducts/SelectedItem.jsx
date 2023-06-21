@@ -25,7 +25,6 @@ const SelectedItem = ({ title, price, totalPrice, id, image, quantity }) => {
     );
   };
 
-  console.log('image', image)
   return (
     <>
       <tr className={classes.tr}>

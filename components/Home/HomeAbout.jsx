@@ -13,7 +13,7 @@ export default function HomeAbout() {
                     <Image
                       width={100}
                       height={100}
-                      src="/assets/images/about/05.jpg"
+                      src="/assets/images/new/crate_egg.jpeg"
                       alt="about"
                     />
                   </div>
@@ -23,7 +23,18 @@ export default function HomeAbout() {
                         width={100}
                         height={100}
                         className=""
-                        src="https://images.unsplash.com/photo-1556316918-880f9e893822?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NDJ8fHBvdWx0cnl8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60"
+                        src="/assets/images/new/chicken2.jpeg"
+                        alt="about Image"
+                      />
+                    </div>
+                  </div>
+                  <div className="about-thumb">
+                    <div className="ac-thumb">
+                      <Image
+                        width={100}
+                        height={100}
+                        className=""
+                        src="/assets/images/new/tilapia.jpeg"
                         alt="about Image"
                       />
                     </div>
@@ -59,11 +70,27 @@ export default function HomeAbout() {
                     <Image
                       width={100}
                       height={100}
-                      src="https://images.unsplash.com/photo-1589922583749-6b8473a85048?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8cG91bHRyeXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60"
+                      src="https://images.unsplash.com/photo-1630090374791-c9eb7bab3935?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1172&q=80"
                       alt="about"
                     />
                   </div>
                   <div className="about-thumb">
+                    <Image
+                      width={100}
+                      height={100}
+                      src="/assets/images/new/Catfish.jpeg"
+                      alt="about"
+                    />
+                  </div>
+                  <div className="about-thumb">
+                    <Image
+                      width={100}
+                      height={100}
+                      src="/assets/images/new/photo3.jpeg"
+                      alt="about"
+                    />
+                  </div>
+                  {/* <div className="about-thumb">
                     <div className="ac-thumb">
                       <Image
                         width={100}
@@ -73,7 +100,7 @@ export default function HomeAbout() {
                         alt="about Image"
                       />
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
             </div>
