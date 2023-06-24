@@ -4,7 +4,9 @@ import { MdCancel } from "react-icons/md";
 import classes from "./Bank.module.css";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase";
+import { useRouter } from "next/router";
 const Bank = ({ onClose, totalAmount, checkoutFormData }) => {
+  const router = useRouter()
   const closeModal = () => {
     onClose();
   };
@@ -44,6 +46,7 @@ const Bank = ({ onClose, totalAmount, checkoutFormData }) => {
     });
     await createOrder()
     onClose();
+    router.push('/shop/ps-checkout-pending')
   };
 
   return (
