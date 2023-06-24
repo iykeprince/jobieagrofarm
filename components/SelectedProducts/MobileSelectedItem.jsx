@@ -66,7 +66,7 @@ const MobileSelectedItem = ({
         </div>
       </div>
       <p className={classes.total__price}>
-        Total price: <span>&#8358;{totalPrice}</span>
+        Total price: <span>&#8358;{totalPrice.toLocaleString()}</span>
       </p>
     </li>
   );

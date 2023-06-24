@@ -23,43 +23,40 @@ const ProductsSlice = createSlice({
       state.products = action.payload.products;
     },
     addCartItem(state, action) {
-      state.totalQuantity++;
+     
       const newItem = action.payload;
-      console.log('newitem', newItem)
       const existingItem = state.carts.find((item) => item.id === newItem.id);
-      const updatedAmount = parseFloat(state.totalAmount) + parseFloat(newItem.price);
-      state.totalAmount = updatedAmount;
-      const newItemPrice = +newItem.price;
+      state.totalAmount = Number(state.totalAmount) + Number(newItem.price);
+      // const newItemPrice = +newItem.price;
       if (existingItem) {
         existingItem.quantity++;
 
-        existingItem.totalPrice =
-          existingItem.totalPrice + parseFloat(newItemPrice)
+        existingItem.totalPrice += Number(newItem.price)
       } else {
         state.carts.push({
           id: newItem.id,
           price: newItem.price,
           quantity: 1,
-          totalPrice: parseFloat(newItemPrice),
+          totalPrice: Number(newItem.price),
           title: newItem.title,
           image: newItem.image,
           type: newItem.type,
         });
       }
+      state.totalQuantity = state.carts.reduce((acc, current) => acc + current.quantity,0 );
     },
     removeCartItem(state, action) {
       const { id } = action.payload;
       const existingItem = state.carts.find((item) => item.id === id);
-      const updatedAmount = +state.totalAmount - +existingItem.price;
-      state.totalAmount = updatedAmount;
-      state.totalQuantity = state.totalQuantity - +existingItem.quantity;
+     state.totalAmount = Number(state.totalAmount) - Number(existingItem.price);
+     
       if (existingItem.quantity === 1) {
         state.carts = state.carts.filter((item) => item.id !== id);
       } else {
-        const newAmount = existingItem.totalPrice - existingItem.price;
         existingItem.quantity--;
-        existingItem.totalPrice = newAmount;
+        existingItem.totalPrice = Number(existingItem.totalPrice) - Number(existingItem.price);
       }
+      state.totalQuantity = state.carts.reduce((acc, current) => acc + current.quantity,0 );
     },
     deleteCartItem(state, action) {
       const { id } = action.payload;

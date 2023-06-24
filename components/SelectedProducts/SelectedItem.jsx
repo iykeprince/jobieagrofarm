@@ -53,8 +53,8 @@ const SelectedItem = ({ title, price, totalPrice, id, image, quantity }) => {
             ></i>
           </span>
         </td>
-        <td>&#8358;{price}</td>
-        <td>&#8358;{totalPrice}</td>
+        <td>&#8358;{price.toLocaleString()}</td>
+        <td>&#8358;{totalPrice.toLocaleString()}</td>
       </tr>
     </>
   );

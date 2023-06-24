@@ -12,7 +12,6 @@ const ProductsItem = ({ id, title, image, price, type, quantity }) => {
         title,
         image,
         price,
-        amount: 1,
         type,
       }),
     )

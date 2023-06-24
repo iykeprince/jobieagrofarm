@@ -1,9 +1,12 @@
 import { useState } from 'react'
 import Button from '../../components/Button'
 import Input from './Input'
+import PaystackIcon from './../../public/paystack.svg'
+import SpinnerIcon from './../../public/spinner.gif'
 
 import classes from './CheckoutForm.module.css'
-const Form = ({ onBank, onFlutter, onPaystack }) => {
+import Image from 'next/image'
+const Form = ({ onBank, onFlutter, onPaystack, paystackLoader }) => {
   const [form, setForm] = useState({
     email: '',
     firstName: '',
@@ -14,6 +17,7 @@ const Form = ({ onBank, onFlutter, onPaystack }) => {
     zip: '',
     country: '',
   })
+
   const firstNameOnChangeHandler = (e) => {
     setForm((prev) => {
       return { ...prev, firstName: e.target.value }
@@ -58,6 +62,19 @@ const Form = ({ onBank, onFlutter, onPaystack }) => {
 
   const payStackHandler = (event) => {
     event.preventDefault()
+    let valid = true;
+    let invalidFields = []
+    Object.keys(form).forEach((f) => {
+      const value = form[f]
+      if(value === "" || value === undefined) {
+        valid =false;
+        invalidFields = [...invalidFields, f]
+      }
+    })
+    if(!valid) {
+      window.alert(`Some field are required: ${invalidFields}`)
+      return;
+    }
     onPaystack({
       email: form.email,
       firstname: form.firstName,
@@ -83,7 +100,7 @@ const Form = ({ onBank, onFlutter, onPaystack }) => {
   }
 
   return (
-    <form oValidate>
+    <form>
       <h3 className="display-6 text-left">Delivery Details</h3>
       <br />
       <div className={classes.row}>
@@ -185,10 +202,16 @@ const Form = ({ onBank, onFlutter, onPaystack }) => {
           className="btn btn-dark mb-2 mb-md-0"
           // className={classes.button}
           onClick={payStackHandler}
+          disabled={paystackLoader}
         >
-          Pay with PayStack
+          <div class="flex">
+            {paystackLoader ?  <Image width={36} height={36} priority src={SpinnerIcon} alt="Loader icon" /> : <>
+              <Image width={24} height={24} priority src={PaystackIcon} alt="Paystack icon" />
+                &nbsp;<span> Pay with PayStack</span>
+            </>}
+          </div>
         </Button>
-        <Button
+        {/* <Button
           id="btn__submit"
           type="button"
           // className={classes.button}
@@ -196,9 +219,10 @@ const Form = ({ onBank, onFlutter, onPaystack }) => {
           onClick={flutterHandler}
         >
           Pay with Flutterwave
-        </Button>
+        </Button> */}
       </div>
+      <br />
     </form>
-  )
+  );
 }
 export default Form

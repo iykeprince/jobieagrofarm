@@ -18,7 +18,7 @@ const Checkouts = () => {
   const [flutterModal, setFlutterModal] = useState(false)
   const [checkoutFormData, setCheckoutFormData] = useState(null)
   const [success, setSuccess] = useState(false)
-
+  const [paystackLoader, setPaystackLoader] = useState(false)
   const { users, carts, totalAmount } = useSelector((state) => state.products)
 
   const { authUser } = useAuth()
@@ -34,63 +34,72 @@ const Checkouts = () => {
   )
   const router = useRouter()
 
-  useEffect(() => {
-    const addToDataBase = async () => {
-      // Storing in database
-      const docRef = collection(db, 'transactions')
-      console.log(docRef)
-      await addDoc(docRef, {
-        email: checkoutFormData?.email,
-        firstname: checkoutFormData?.firstname,
-        lastname: checkoutFormData?.lastname,
-        address: checkoutFormData?.address,
-        zip: checkoutFormData?.zip,
-        country: checkoutFormData?.country,
-        state: checkoutFormData?.state,
-        phone: checkoutFormData?.phone,
-        status: 'Success',
-        date: new Date().toLocaleDateString(),
-        amount: parseInt(totalAmount) * 100,
-        paymentType: 'Paystack',
-      })
-    }
-    const createOrder = async () => {
-      const signedInUserEmail = authUser?.email
-      const user = users.find((user) => user.email === signedInUserEmail)
+  // useEffect(() => {
+    
+    
+  //   if (success) {
+  //     // addToDataBase()
+  //     // createOrder()
+  //   }
+  // }, [success, totalAmount, carts, users, authUser])
 
-      const docRef = collection(db, 'orders')
-      await addDoc(docRef, {
-        totalQuantity: carts.length,
-        carts: carts,
-        grandTotal: totalAmount,
-        paymentStatus: 'Pending',
-        orderStatus: 'Pending',
-        customerName: user.lastName ? `${user.lastName} ${user.firstName}` : '',
-        customerEmail: user.email || '',
-        customerPhone: user.phone || '',
-      })
-    }
-    if (success) {
-      addToDataBase()
-      createOrder()
-    }
-  }, [success, checkoutFormData, totalAmount, carts, users, authUser])
+  const addToDataBase = async (reference) => {
+    // Storing in database
+    const docRef = collection(db, 'transactions')
+    console.log(docRef)
+    await addDoc(docRef, {
+      email: checkoutFormData?.email,
+      firstname: checkoutFormData?.firstname,
+      lastname: checkoutFormData?.lastname,
+      address: checkoutFormData?.address,
+      zip: checkoutFormData?.zip,
+      country: checkoutFormData?.country,
+      state: checkoutFormData?.state,
+      phone: checkoutFormData?.phone,
+      status: 'success',
+      date: new Date().toLocaleDateString(),
+      amount: Number(totalAmount) * 100,
+      paymentType: 'Paystack',
+      reference: reference,
+    })
+  }
 
-  const onSuccess = (reference) => {
+  const createOrder = async () => {
+    // const signedInUserEmail = authUser?.email
+    // const user = users.find((user) => user.email === signedInUserEmail)
+
+    const docRef = collection(db, 'orders')
+    await addDoc(docRef, {
+      totalQuantity: carts.length,
+      carts: carts,
+      grandTotal: totalAmount,
+      paymentStatus: 'paid',
+      orderStatus: 'pending',
+      customerName: `${checkoutFormData?.firstname} ${checkoutFormData?.lastname}` ,
+      customerEmail:checkoutFormData?.email|| '',
+      customerPhone: checkoutFormData?.phone || '',
+    })
+  }
+  const onSuccess = async  (reference) => {
     // Implementation for whatever you want to do with reference and after success call.
-    // console.log(reference);
+    console.log(reference);
+    await addToDataBase(reference)
+    await createOrder()
     setSuccess(true)
     setTimeout(() => {
       setSuccess(false)
+      setPaystackLoader(false)
     }, 2000)
     router.push('/shop/ps-checkout-success')
   }
 
-  const onClose = () => {
+  const onClose =async () => {
+    setPaystackLoader(false)
     // implementation for  whatever you want to do when the Paystack dialog closed. setSuccess(true);
   }
 
   const getFormDatas = (datas) => {
+    setPaystackLoader(true)
     setCheckoutFormData(datas)
     setTimeout(() => {
       initializePayment(onSuccess, onClose)
@@ -107,7 +116,8 @@ const Checkouts = () => {
     <>
       <div className={classes.payment__form}>
         {bankModal && (
-          <Bank
+          <Bank 
+          carts={carts}
             onClose={closeBank}
             totalAmount={totalAmount}
             checkoutFormData={checkoutFormData}
@@ -146,7 +156,8 @@ const Checkouts = () => {
           </div>
           <div className="col-1 d-sm-none d-md-block" />
           <div className="col-sm-12 col-md-6 mt-8 border">
-            <Form
+            <Form 
+              paystackLoader={paystackLoader}
               onPaystack={getFormDatas}
               onBank={() => setBankModal(true)}
               onFlutter={() => setFlutterModal(true)}

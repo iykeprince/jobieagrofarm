@@ -9,6 +9,23 @@ const Bank = ({ onClose, totalAmount, checkoutFormData }) => {
     onClose();
   };
 
+  const createOrder = async () => {
+    // const signedInUserEmail = authUser?.email
+    // const user = users.find((user) => user.email === signedInUserEmail)
+
+    const docRef = collection(db, 'orders')
+    await addDoc(docRef, {
+      totalQuantity: carts.length,
+      carts: carts,
+      grandTotal: totalAmount,
+      paymentStatus: 'pending',
+      orderStatus: 'pending',
+      customerName: `${checkoutFormData?.firstname} ${checkoutFormData?.lastname}` ,
+      customerEmail:checkoutFormData?.email|| '',
+      customerPhone: checkoutFormData?.phone || '',
+    })
+  }
+
   const confirmPayment = async () => {
     const docRef = collection(db, "transactions");
     await addDoc(docRef, {
@@ -20,11 +37,12 @@ const Bank = ({ onClose, totalAmount, checkoutFormData }) => {
       country: checkoutFormData?.country,
       state: checkoutFormData?.state,
       phone: checkoutFormData?.phone,
-      status: "Success",
+      status: "pending",
       date: new Date().toLocaleDateString(),
-      amount: parseInt(totalAmount) * 100,
+      amount: Number(totalAmount) * 100,
       paymentType: "Bank Transfer",
     });
+    await createOrder()
     onClose();
   };
 
