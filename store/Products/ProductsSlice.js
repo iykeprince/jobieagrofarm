@@ -66,6 +66,11 @@ const ProductsSlice = createSlice({
       state.totalQuantity = state.totalQuantity - +existingItem.quantity;
       state.carts = state.carts.filter((item) => item.id !== id);
     },
+    clearCart(state, _){
+      state.carts = [];
+      state.totalQuantity = 0
+      state.totalAmount = 0
+    },
     addUsers(state, action) {
       state.users = action.payload.users;
     },

@@ -106,6 +106,11 @@ const Checkouts = () => {
     }, 500)
   }
 
+  const onBankFormData = (data) => {
+    setBankModal(true)
+    setCheckoutFormData(data)
+  }
+
   const closeBank = () => {
     setBankModal(false)
   }
@@ -159,7 +164,7 @@ const Checkouts = () => {
             <Form 
               paystackLoader={paystackLoader}
               onPaystack={getFormDatas}
-              onBank={() => setBankModal(true)}
+              onBank={onBankFormData}
               onFlutter={() => setFlutterModal(true)}
             />
           </div>

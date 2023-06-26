@@ -5,7 +5,11 @@ import classes from "./Bank.module.css";
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../../firebase";
 import { useRouter } from "next/router";
-const Bank = ({ onClose, totalAmount, checkoutFormData }) => {
+import { useDispatch, useSelector } from "react-redux";
+import { ProductsActions } from "../../store/Products/ProductsSlice";
+
+const Bank = ({ onClose, carts, totalAmount, checkoutFormData }) => {
+  const dispatch = useDispatch();
   const router = useRouter()
   const closeModal = () => {
     onClose();
@@ -29,6 +33,7 @@ const Bank = ({ onClose, totalAmount, checkoutFormData }) => {
   }
 
   const confirmPayment = async () => {
+  
     const docRef = collection(db, "transactions");
     await addDoc(docRef, {
       email: checkoutFormData?.email,
@@ -45,6 +50,7 @@ const Bank = ({ onClose, totalAmount, checkoutFormData }) => {
       paymentType: "Bank Transfer",
     });
     await createOrder()
+    dispatch(ProductsActions.clearCart())
     onClose();
     router.push('/shop/ps-checkout-pending')
   };

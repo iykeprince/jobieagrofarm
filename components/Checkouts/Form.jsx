@@ -6,7 +6,7 @@ import SpinnerIcon from './../../public/spinner.gif'
 
 import classes from './CheckoutForm.module.css'
 import Image from 'next/image'
-const Form = ({ onBank, onFlutter, onPaystack, paystackLoader }) => {
+const Form = ({ onBank, onFlutter, onFormData, paystackLoader }) => {
   const [form, setForm] = useState({
     email: '',
     firstName: '',
@@ -75,7 +75,7 @@ const Form = ({ onBank, onFlutter, onPaystack, paystackLoader }) => {
       window.alert(`Some field are required: ${invalidFields}`)
       return;
     }
-    onPaystack({
+    onFormData({
       email: form.email,
       firstname: form.firstName,
       lastname: form.lastName,
@@ -89,8 +89,29 @@ const Form = ({ onBank, onFlutter, onPaystack, paystackLoader }) => {
 
   const bankHandler = (event) => {
     event.preventDefault()
-
-    onBank()
+    let valid = true;
+    let invalidFields = []
+    Object.keys(form).forEach((f) => {
+      const value = form[f]
+      if(value === "" || value === undefined) {
+        valid =false;
+        invalidFields = [...invalidFields, f]
+      }
+    })
+    if(!valid) {
+      window.alert(`Some field are required: ${invalidFields}`)
+      return;
+    }
+    onBank({
+      email: form.email,
+      firstname: form.firstName,
+      lastname: form.lastName,
+      address: form.address,
+      zip: form.zip,
+      country: form.country,
+      state: form.state,
+      phone: form.phone,
+    })
   }
   const flutterHandler = (event) => {
     event.preventDefault()

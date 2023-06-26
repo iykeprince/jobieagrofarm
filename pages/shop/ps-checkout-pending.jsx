@@ -8,7 +8,7 @@ const PsCheckoutSuccess = () => {
     <>
       <Header />
       <section className={classes.contact__form}>
-        <h2 className={classes.success}>Your transaction is being processed, we will notify you once the transaction is confirmed!</h2>
+        <h2 className={classes.info} style={{marginTop: '280px'}}>Your transaction is being processed, we will notify you once the transaction is confirmed!</h2>
         <div className={classes.btn__box}>
           {" "}
           <button onClick={() => router.push("/")} className={classes.button}>
