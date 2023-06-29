@@ -52,7 +52,10 @@ const { createTransport } = require('nodemailer');
 //       })
 // })
 
-const transporter = createTransport({
+
+exports.sendWelcomeMessage = functions.auth.user().onCreate(async (user) => {
+  // console.log('sendWelcomeMessage',user)
+  const transporter = createTransport({
   host: 'jobieagrofarm.com',
   port: 465,
   secure: true,
@@ -62,8 +65,6 @@ const transporter = createTransport({
   }
 });
 
-exports.sendWelcomeMessage = functions.auth.user().onCreate(async (user) => {
-  console.log('sendWelcomeMessage',user)
   const displayName = user.displayName || 'User';
   const email = user.email || '';
 
@@ -93,6 +94,16 @@ exports.sendWelcomeMessage = functions.auth.user().onCreate(async (user) => {
 
 exports.sendOrderEmail = functions.firestore.document('orders/{orderId}').onCreate((snap, context) => {
   console.log("data from snap", snap.data()?.email);
+  const transporter = createTransport({
+    host: 'jobieagrofarm.com',
+    port: 465,
+    secure: true,
+    auth: {
+        user: 'hello@jobieagrofarm.com',
+        pass: '$$J0b1e@agroF@rm2023'
+    }
+  });
+  
   const mailOptions = {
     from: "admin@jobieagrofarm.com",
     to: snap.data().email,
