@@ -352,7 +352,7 @@ const Form = ({ setError, loading, onSubmit }) => {
             invalid={
               !form.passwordIsValid && form.passwordIsFocus ? "invalid" : ""
             }
-            placeholder="e.g, Password@1234"
+            placeholder=""
             value={form.password}
             onChange={passwordOnChangeHandler}
             onBlur={passwordOnBlurHandler}
@@ -377,7 +377,7 @@ const Form = ({ setError, loading, onSubmit }) => {
                 ? "invalid"
                 : ""
             }
-            placeholder="e.g, Password@1234"
+            placeholder=""
             value={form.confirmpassword}
             onChange={confirmpasswordOnChangeHandler}
             onBlur={confirmpasswordOnBlurHandler}

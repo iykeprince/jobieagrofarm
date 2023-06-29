@@ -24,6 +24,7 @@ const Login = () => {
         password: formData.password,
       })
       console.log(response, 'signed in successfully')
+     
       router.push('/')
     } catch (error) {
       console.log('error occured', error.toString())

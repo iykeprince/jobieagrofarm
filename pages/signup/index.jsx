@@ -37,8 +37,7 @@ const SignUp = () => {
         await updateUsername(user, name)
       }
 
-      await signInWithCustomEmailAndPassword(email, password)
-
+      
       // Adding user to the database
       // Add a new document with a generated id.
       const docRef = collection(db, 'users')
@@ -47,8 +46,10 @@ const SignUp = () => {
         lastName: formData.last_name,
         email: formData.email,
         phone: formData.phone,
+        userId: user.uid
       })
-
+      
+      // await signInWithCustomEmailAndPassword(email, password)
       router.push('/login')
     } catch (error) {
       console.log(`Something went wrong: ${error}`)
@@ -73,6 +74,8 @@ const SignUp = () => {
         lastName: lastName,
         email: email,
         phone: '',
+        role: "customer",
+        userId: user.uid
       })
 
       router.push('/')

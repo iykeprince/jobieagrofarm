@@ -60,18 +60,18 @@ const Header: React.FC<any> = () => {
           </Nav>
           <Nav className="ml-auto">
             {!authUser && (
-              <Nav.Link>
-                <Link href="/signup" className="text-decoration-none" legacyBehavior>
+              // <Nav.Link>
+                <Nav.Link href="/signup" className="text-decoration-none" >
                   Sign Up
-                </Link>
-              </Nav.Link>
+                </Nav.Link>
+              
             )}
             {!authUser && (
-              <Nav.Link>
-                <Link href="/login" className="text-decoration-none" legacyBehavior>
+              // <Nav.Link>
+                <Nav.Link href="/login" className="text-decoration-none" >
                   Login
-                </Link>
-              </Nav.Link>
+                </Nav.Link>
+            
             )}
             {authUser && (
               <NavDropdown title="Account" id="basic-nav-dropdown ml-auto">
