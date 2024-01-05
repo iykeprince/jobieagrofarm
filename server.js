@@ -56,13 +56,13 @@ const { createTransport } = require('nodemailer');
 exports.sendWelcomeMessage = functions.auth.user().onCreate(async (user) => {
   // console.log('sendWelcomeMessage',user)
   const transporter = createTransport({
-  host: 'jobieagrofarm.com',
-  port: 465,
-  secure: true,
-  auth: {
-      user: 'hello@jobieagrofarm.com',
-      pass: '$$J0b1e@agroF@rm2023'
-  }
+    host: "server218.web-hosting.com",
+    port: 465,
+    secure: true,
+    auth: {
+          user: 'hello@jobieagrofarm.com',
+          pass: '$Checkmate@123'
+    }
 });
 
   const displayName = user.displayName || 'User';
@@ -72,7 +72,7 @@ exports.sendWelcomeMessage = functions.auth.user().onCreate(async (user) => {
 
   try {
     const mailOptions = {
-      from: "hello@jobieagrofarm.com",
+      from: '"no-reply" <hello@jobieagrofarm.com>',
       to:  email,
       subject: "Account Created",
       html: welcomeMessage,
@@ -95,17 +95,17 @@ exports.sendWelcomeMessage = functions.auth.user().onCreate(async (user) => {
 exports.sendOrderEmail = functions.firestore.document('orders/{orderId}').onCreate((snap, context) => {
   console.log("data from snap", snap.data()?.email);
   const transporter = createTransport({
-    host: 'jobieagrofarm.com',
+    host: "server218.web-hosting.com",
     port: 465,
     secure: true,
     auth: {
-        user: 'hello@jobieagrofarm.com',
-        pass: '$$J0b1e@agroF@rm2023'
+          user: 'hello@jobieagrofarm.com',
+          pass: '$Checkmate@123'
     }
   });
   
   const mailOptions = {
-    from: "admin@jobieagrofarm.com",
+    from: '"no-reply" <hello@jobieagrofarm.com>',
     to: snap.data().email,
     subject: "Order Created",
     html: `<h1>Hello ${
